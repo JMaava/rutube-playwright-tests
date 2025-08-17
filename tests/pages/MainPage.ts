@@ -12,6 +12,9 @@ export class MainPage extends BasePage {
   private readonly headerNotificationsPopupLocator: Locator;
   private readonly authorizationModalLocator: Locator;
   private readonly switchToSignEmailModalButtonLocator: Locator;
+  private readonly menuButtonLocator: Locator;
+  private readonly openMenuAriaLocator: Locator;
+  private readonly changeThemeButtonLocator: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -35,6 +38,11 @@ export class MainPage extends BasePage {
       .locator('iframe[title="Multipass"]')
       .contentFrame()
       .getByRole('button', { name: 'войти с помощью Почта' });
+    this.menuButtonLocator = this.page.getByRole('button', { name: 'Открыть меню навигации' });
+    this.openMenuAriaLocator = this.page.locator('section').filter({ hasText: 'ГлавнаяRUTUBE' });
+    this.changeThemeButtonLocator = this.page.getByRole('button', {
+      name: 'Переключить на светлую тему',
+    });
   }
 
   async open() {
@@ -75,6 +83,14 @@ export class MainPage extends BasePage {
     await this.switchToSignEmailModalButtonLocator.click();
   }
 
+  async openFullMenu() {
+    await this.menuButtonLocator.click();
+  }
+
+  async changeThemeToWhite() {
+    await this.changeThemeButtonLocator.click();
+  }
+
   async addPopupListHasCorrectAriaSnapshot() {
     await expect(this.headerAddButtonPopupListLocator).toMatchAriaSnapshot({
       name: 'addButtonPopupList.yml',
@@ -97,5 +113,15 @@ export class MainPage extends BasePage {
     await expect(this.authorizationModalLocator).toMatchAriaSnapshot({
       name: 'authorizationModalEmail.yml',
     });
+  }
+
+  async fullMenuHasCorrectAriaSnapshot() {
+    await expect(this.openMenuAriaLocator).toMatchAriaSnapshot({
+      name: 'fullMenuSnapshot.yml',
+    });
+  }
+
+  async checkThemeAttrributeValue(attrributeValue: 'dark2021' | 'white2022') {
+    await expect(this.page.locator('html')).toHaveAttribute('data-pen-theme', attrributeValue);
   }
 }
