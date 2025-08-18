@@ -1,5 +1,4 @@
-import { test, expect } from '../../fixtures/fixtures';
-import { MainPage } from '../../pages/MainPage';
+import { test } from '../../fixtures/fixtures';
 
 test('Проверка доступности элементов хедера', async ({ mainPage }) => {
   await mainPage.headerHasCorrectAriaSnapshot();

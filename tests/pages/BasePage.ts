@@ -7,7 +7,8 @@ export class BasePage {
     this.page = page;
   }
 
-  async closeCookiesAlert() {
+  async closePopup() {
+    await this.page.waitForSelector('.wdp-popup-module__header', { state: 'visible' });
     await this.page.getByRole('button', { name: 'Закрыть' }).click();
   }
 }
