@@ -1,0 +1,21 @@
+- img "Иконка канала channel68076164"
+- img "Иконка канала channel68076164"
+- paragraph:
+  - link "channel68076164":
+    - /url: /channel/68076164/
+  - link:
+    - /url: /profile/info/edit/
+    - img
+- paragraph: te****@mail.ru
+- list:
+  - listitem:
+    - link "Профиль":
+      - /url: /profile/
+  - listitem:
+    - link "Мой канал":
+      - /url: /channel/68076164/
+  - listitem:
+    - link "Студия RUTUBE":
+      - /url: https://studio.rutube.ru/
+- button "Выйти":
+  - img
