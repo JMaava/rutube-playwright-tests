@@ -1,11 +1,5 @@
-import test from '@playwright/test';
-import { CategoriesPage } from '../../pages/CategoriesPage';
+import { test } from '../../fixtures/fixtures';
 
-test('Проверка layout', async ({ page }) => {
-  const categoriesPage = new CategoriesPage(page);
-  await categoriesPage.open();
-  await categoriesPage.closePopup();
-  await categoriesPage.closeCookiesNotifications();
-  await categoriesPage.hideHeader();
+test('Проверка layout', async ({ categoriesPage }) => {
   await categoriesPage.contentPageHasCorrectLayout();
 });

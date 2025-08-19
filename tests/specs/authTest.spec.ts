@@ -15,6 +15,7 @@ test('auth test', async () => {
   await page.goto('https://rutube.ru/');
   await page.waitForSelector('.wdp-popup-module__header', { state: 'visible' });
   await page.getByRole('button', { name: 'Закрыть' }).click();
+  await page.getByRole('button', { name: 'Ок', exact: true }).click();
   await page.getByRole('button', { name: 'Вход и регистрация' }).click();
   await page
     .locator('iframe[title="Multipass"]')

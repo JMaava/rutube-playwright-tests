@@ -18,15 +18,10 @@ export class CategoriesPage extends BasePage {
   // assertions
 
   async contentPageHasCorrectLayout() {
-    await expect(this.contentPageLocator).toHaveScreenshot('categoriesPage.png');
+    await this.checkLayoutByScreenshot(this.contentPageLocator, 'categoriesPage.png');
   }
 
   async hideHeader() {
-    await this.page.evaluate(() => {
-      const header = document.querySelector('header');
-      if (header) {
-        header.style.display = 'none';
-      }
-    });
+    await this.hideElement('header');
   }
 }
