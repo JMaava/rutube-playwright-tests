@@ -15,7 +15,6 @@
     - listitem:
         - link "Комментарии":
             - /url: /my/comments/
-        - text: Здесь собраны все ваши комментарии и ответы
     - listitem:
         - link "Понравилось":
             - /url: /my/liked/
