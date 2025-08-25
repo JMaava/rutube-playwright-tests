@@ -13,7 +13,7 @@ export class SubscriptionPage extends BasePage {
   // actions
 
   async open() {
-    await this.page.goto('https://rutube.ru/my/subscriptions/');
+    await this.page.goto('/my/subscriptions/');
   }
 
   // assertions
